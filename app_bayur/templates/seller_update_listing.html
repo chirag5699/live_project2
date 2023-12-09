@@ -1,0 +1,271 @@
+{% extends 'seller_hedder_futter.html' %}
+{%block content%} 
+{% load static %}
+
+                         <!doctype html>
+                         <html class="no-js" lang="zxx">
+                            
+                         <!-- Mirrored from wphix.com/template/dukamarket/dukamarket/my-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Jun 2023 21:39:03 GMT -->
+                         <head>
+                               <meta charset="utf-8">
+                               <meta http-equiv="x-ua-compatible" content="ie=edge">
+                               <title>Duka Market - Clean, Minimal E-commerce HTML5 Template </title>
+                               <meta name="description" content="">
+                               <meta name="viewport" content="width=device-width, initial-scale=1">
+                               <!-- Place favicon.ico in the root directory -->
+                               <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.png' %}">
+                               <!-- CSS here -->
+                               <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/owl-carousel.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/backtotop.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/ui-range-slider.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/flaticon/flaticon.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/font-awesome-pro.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+                               <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+                            </head>
+                            <body>
+                               <!--[if lte IE 9]>
+                               <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+                               <![endif]-->
+                         
+                          
+                          
+                         
+                             <!-- offcanvas area start -->
+                             <div  class="offcanvas__area">
+                                 <div class="offcanvas__wrapper">
+                                 <div class="offcanvas__close">
+                                     <button class="offcanvas__close-btn" id="offcanvas__close-btn">
+                                         <i class="fal fa-times"></i>
+                                     </button>
+                                 </div>
+                                 <div class="offcanvas__content">
+                                     <div class="offcanvas__logo mb-40">
+                                         <a href="index.html">
+                                         <img src="{% static 'assets/img/logo/logo-white.png' %}" alt="logo">
+                                         </a>
+                                     </div>
+                                     <div class="offcanvas__search mb-25">
+                                         <form action="#">
+                                             <input type="text" placeholder="What are you searching for?">
+                                             <button type="submit" ><i class="far fa-search"></i></button>
+                                         </form>
+                                     </div>
+                                     <div class="mobile-menu fix"></div>
+                                     <div class="offcanvas__action">
+                         
+                                     </div>
+                                 </div>
+                                 </div>
+                             </div>
+                             <!-- offcanvas area end -->      
+                             <div class="body-overlay"></div>
+                             <!-- offcanvas area end -->
+                         
+                             <main>
+                                 <!-- page-banner-area-start -->
+                                 <div class="page-banner-area page-banner-height-2" data-background="{% static 'assets/img/banner/page-banner-4.jpg' %}">
+                                     <div class="container">
+                                         <div class="row">
+                                             <div class="col-xl-12">
+                                                 <div class="page-banner-content text-center">
+                                                     <h4 class="breadcrumb-title">LISTING</h4>
+                                                     <div class="breadcrumb-two">
+                                                         <nav>
+                                                            <nav class="breadcrumb-trail breadcrumbs">
+                                                               <ul class="breadcrumb-menu">
+                                                                  <li class="breadcrumb-trail">
+                                                                     <a href="index.html"><span>Home</span></a>
+                                                                  </li>
+                                                                  <li class="trail-item">
+                                                                     <span>Listing</span>
+                                                                  </li>
+                                                               </ul>
+                                                            </nav> 
+                                                         </nav>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <!-- page-banner-area-end -->
+                         
+                                 <!-- account-area-start -->
+                                 <div class="account-area mt-70 mb-70">
+                                     <div style="margin-left: 30%;" class="container">
+                                         <div class="row">
+                                             
+                                             <div class="col-lg-5">
+                                                 <div class="basic-login">
+                                                     <h5>Product Listing</h5>
+                         
+                                                    <p style="color: rgb(205, 115, 85); font-size: larger; ">{{msg}}
+                                                     {{msg1}}
+                                                    </p> 
+                                                     <form action="{% url 'Seller_update_Listing'  Singal_data.id %}" Method='post' enctype="multipart/form-data">
+                                                         {% csrf_token %}
+
+                                                         <img width="200px" height="200px"  src="{{seller_login.Listing_immage.url}}"  name="immage"
+                                                         style="margin-center: 200px; border-radius: 75px;">
+
+                                                         <label for="username"></label>
+                                                         <input id="username" name="Listing_immage" type="file" placeholder="Enter image"  value={{Singal_data.Listing_immage}}>
+
+                                                         <label for="Product name">Product name   <span>*</span></label>
+                                                         <input name="P_name" type="text" placeholder="Enter Product name" value={{Singal_data.P_name}}>
+
+                                                         <label for="Product price">Product price <span>*</span></label>
+                                                         <input  name="P_Price" type="number" placeholder="Email Product price..."  value={{Singal_data.P_Price}}>
+
+                                                         <label for="Product sellprice">Product sellprice <span>*</span></label>
+                                                         <input  name="P_sellprice" type="number" placeholder="Enter Product sellprice..."  value={{Singal_data.P_sellprice}}>
+
+                                                         {% for i in color %}
+                                                         
+                                                         <label for="Product color"> <span>*</span></label>
+                                                         <input  id="color{{ i.id }}" name="P_Color" type="checkbox" placeholder="Enter Product color..." value={{i.0}} {% if i.0 in list_color %} checked {% endif %}>{{i.1}}  
+                                                         {% endfor %} 
+                                                          <br>
+                                                
+                                                         <label for="product Quntity">product Quntity<span>*</span></label>
+                                                         <input  name="P_Quntity" type="number" placeholder="Enter product Quntity..."  value={{Singal_data.P_Quntity}}>
+
+                                                         <label for="product Description">product Description<span>*</span></label>
+                                                         <textarea  name="P_Description" cols="30" rows="10" value={{Singal_data.P_Description}}></textarea>
+                                                        <br>
+                                                        <br>
+                                                         <label for="product categary"><span>*</span></label>
+                                                         <input  name="P_Categary" type="text" placeholder="Enter product categary..." value={{Singal_data.P_Categary}}>
+                                                       
+                                                         
+                                                         <button type="submit" class="tp-in-btn w-100" value="sing up" name="submit">submit</button>
+                                            
+                         
+                                                     </form>
+                         
+                                                   
+                                                          
+                         <!--                             
+                                                         <div class="col-md-8 form-group text-left">
+                                                             <label>First name</label>
+                                                             <input class="form-control" type="text" name="firstname" placeholder="first name">
+                                                         </div>
+                                                         <div class="col-md-8 form-group text-left">
+                                                             <label>E-mail</label>
+                                                             <input class="form-control" type="text" name="email" placeholder="example@email.com">
+                                                         </div>
+                                                         
+                                                         <div class="col-md-8 form-group text-left">
+                                                             <label>Password</label>
+                                                             <input class="form-control" type="Password" name="password" placeholder="your password">
+                                                         </div>
+                                                         <div class="col-md-8 form-group text-left">
+                                                             <label>confirm password</label>
+                                                             <input class="form-control" type="password" name="Cpassword" placeholder="0000">
+                                                             <br>
+                                                             <div>
+                                                             <a href=""> Alreday ragistred ? sign-in  here</a>
+                                                             <br>
+                                                             <br>
+                                                          <button></a><input class="btn btn-primary" type="Submit" value="sing up" name="submit"></button>
+                              -->
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <!-- account-area-end -->
+                         
+                                 <!-- cta-area-start -->
+                                 <section class="cta-area d-ldark-bg pt-55 pb-10">
+                                     <div class="container">
+                                         <div class="row">
+                                             <div class="col-lg-4 col-md-6">
+                                                 <div class="cta-item cta-item-d mb-30">
+                                                     <h5 class="cta-title">Follow Us</h5>
+                                                     <p>We make consolidating, marketing and tracking your social media website easy.</p>
+                                                     <div class="cta-social">
+                                                         <div class="social-icon">
+                                                             <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                                             <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                                                             <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                                             <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                                             <a href="#" class="rss"><i class="fas fa-rss"></i></a>
+                                                             <a href="#" class="dribbble"><i class="fab fa-dribbble"></i></a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="col-lg-4 col-md-6">
+                                                 <div class="cta-item mb-30">
+                                                     <h5 class="cta-title">Sign Up To Newsletter</h5>
+                                                     <p>Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                                                     <div class="subscribe__form">
+                                                         <form action="#">
+                                                             <input type="email" placeholder="Enter your email here...">
+                                                             <button>subscribe</button>
+                                                         </form>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="col-lg-4 col-md-6">
+                                                 <div class="cta-item mb-30">
+                                                     <h5 class="cta-title">Download App</h5>
+                                                     <p>DukaMarket App is now available on App Store & Google Play. Get it now.</p>
+                                                     <div class="cta-apps">
+                                                         <div class="apps-store">
+                                                             <a href="#"><img src="{% static 'assets/img/brand/app_ios.png' %}" alt=""></a>
+                                                             <a href="#"><img src="{% static 'assets/img/brand/app_android.png' %}" alt=""></a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                         
+                                 </section>
+                                 <!-- cta-area-end -->
+                         
+                             </main>
+                         
+                          
+                               <!-- JS here -->
+                               <script src="{% static 'assets/js/vendor/jquery.js' %}"></script>
+                               <script src="{% static 'assets/js/vendor/waypoints.js' %}"></script>
+                               <script src="{% static 'assets/js/bootstrap-bundle.js' %}"></script>
+                               <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+                               <script src="{% static 'assets/js/swiper-bundle.js' %}"></script>
+                               <script src="{% static 'assets/js/tweenmax.js' %}"></script>
+                               <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+                               <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+                               <script src="{% static 'assets/js/parallax.js' %}"></script>
+                               <script src="{% static 'assets/js/backtotop.js' %}"></script>
+                               <script src="{% static 'assets/js/nice-select.js' %}"></script>
+                               <script src="{% static 'assets/js/countdown.min.js' %}"></script>
+                               <script src="{% static 'assets/js/counterup.js' %}"></script>
+                               <script src="{% static 'assets/js/ui-slider-range.js' %}"></script>
+                               <script src="{% static 'assets/js/wow.js' %}"></script>
+                               <script src="{% static 'assets/js/isotope-pkgd.js' %}"></script>
+                               <script src="{% static 'assets/js/imagesloaded-pkgd.js' %}"></script>
+                               <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+                               <script src="{% static 'assets/js/main.js' %}"></script>
+                            </body>
+                         
+                         <!-- Mirrored from wphix.com/template/dukamarket/dukamarket/my-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Jun 2023 21:39:05 GMT -->
+                         </html>
+                         {% endblock %}
